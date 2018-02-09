@@ -1,5 +1,5 @@
 //
-//  LHYLogView.h
+//  LLLogView.h
 //  lhy_test
 //
 //  Created by WangZhaomeng on 2018/1/29.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LHYLogView : UIView
+@interface LLLogView : UIView
 
 + (void)startLog;
 + (NSString *)outputString:(NSString *)string;

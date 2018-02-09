@@ -25,7 +25,7 @@
     [self.window setRootViewController:[ViewController new]];
     
 #if DEBUG
-    [LHYLogView startLog];
+    [LLLogView startLog];
 #endif
     return YES;
 }

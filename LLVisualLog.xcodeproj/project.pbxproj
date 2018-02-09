@@ -13,7 +13,7 @@
 		75275CDF202843E100427B4C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 75275CDE202843E100427B4C /* main.m */; };
 		75275CE9202843E100427B4C /* LLVisualLogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 75275CE8202843E100427B4C /* LLVisualLogTests.m */; };
 		75275CF4202843E100427B4C /* LLVisualLogUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 75275CF3202843E100427B4C /* LLVisualLogUITests.m */; };
-		75275D052028459800427B4C /* LHYLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75275D032028459800427B4C /* LHYLogView.m */; };
+		75275D052028459800427B4C /* LLLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75275D032028459800427B4C /* LLLogView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,8 @@
 		75275CF3202843E100427B4C /* LLVisualLogUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLVisualLogUITests.m; sourceTree = "<group>"; };
 		75275CF5202843E100427B4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75275D012028440700427B4C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		75275D032028459800427B4C /* LHYLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LHYLogView.m; sourceTree = "<group>"; };
-		75275D042028459800427B4C /* LHYLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LHYLogView.h; sourceTree = "<group>"; };
+		75275D032028459800427B4C /* LLLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLLogView.m; sourceTree = "<group>"; };
+		75275D042028459800427B4C /* LLLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLLogView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 		75275CCE202843E100427B4C /* LLVisualLog */ = {
 			isa = PBXGroup;
 			children = (
-				75275D022028459800427B4C /* LHYLogView */,
+				75275D022028459800427B4C /* LLLogView */,
 				75275CCF202843E100427B4C /* AppDelegate.h */,
 				75275CD0202843E100427B4C /* AppDelegate.m */,
 				75275CD2202843E100427B4C /* ViewController.h */,
@@ -132,13 +132,13 @@
 			path = LLVisualLogUITests;
 			sourceTree = "<group>";
 		};
-		75275D022028459800427B4C /* LHYLogView */ = {
+		75275D022028459800427B4C /* LLLogView */ = {
 			isa = PBXGroup;
 			children = (
-				75275D042028459800427B4C /* LHYLogView.h */,
-				75275D032028459800427B4C /* LHYLogView.m */,
+				75275D042028459800427B4C /* LLLogView.h */,
+				75275D032028459800427B4C /* LLLogView.m */,
 			);
-			path = LHYLogView;
+			path = LLLogView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75275CD4202843E100427B4C /* ViewController.m in Sources */,
-				75275D052028459800427B4C /* LHYLogView.m in Sources */,
+				75275D052028459800427B4C /* LLLogView.m in Sources */,
 				75275CDF202843E100427B4C /* main.m in Sources */,
 				75275CD1202843E100427B4C /* AppDelegate.m in Sources */,
 			);

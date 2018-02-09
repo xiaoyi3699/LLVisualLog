@@ -1,14 +1,14 @@
 //
-//  LHYLogView.m
+//  LLLogView.m
 //  lhy_test
 //
 //  Created by WangZhaomeng on 2018/1/29.
 //  Copyright © 2018年 WangZhaomeng. All rights reserved.
 //
 
-#import "LHYLogView.h"
+#import "LLLogView.h"
 
-@implementation UITextView (LHYLogView)
+@implementation UITextView (LLLogView)
 
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
     return NO;
@@ -173,19 +173,19 @@
 
 @end
 
-@interface LHYLogView ()
+@interface LLLogView ()
 
 @property (nonatomic, assign) BOOL isStart;
 
 @end
 
-@implementation LHYLogView {
+@implementation LLLogView {
     UITextView *_textView;
 }
 
 + (void)startLog {
     dispatch_async(dispatch_get_main_queue(), ^{
-        LHYLogView *logView = [LHYLogView logView];
+        LLLogView *logView = [LLLogView logView];
         logView.isStart = YES;
         if (logView.superview == nil) {
             [[UIApplication sharedApplication].delegate.window addSubview:logView];
@@ -195,7 +195,7 @@
 
 + (NSString *)outputString:(NSString *)string {
     dispatch_async(dispatch_get_main_queue(), ^{
-        LHYLogView *logView = [LHYLogView logView];
+        LLLogView *logView = [LLLogView logView];
         if (logView.isStart) {
             if (string) {
                 LHYMessageView *messageView = [LHYMessageView messageView];
@@ -207,10 +207,10 @@
 }
 
 + (instancetype)logView {
-    static LHYLogView *logView;
+    static LLLogView *logView;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        logView = [[LHYLogView alloc] initWithFrame:CGRectMake(0, 88, 40, 40)];
+        logView = [[LLLogView alloc] initWithFrame:CGRectMake(0, 88, 40, 40)];
         logView.layer.masksToBounds = YES;
         logView.layer.cornerRadius = 20;
         logView.isStart = NO;

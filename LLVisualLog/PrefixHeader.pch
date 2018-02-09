@@ -9,12 +9,12 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-#import "LHYLogView.h"
+#import "LLLogView.h"
 
 //日志打印
 #ifdef DEBUG
 
-#define NSLog(format, ...) printf("%s\n\n",[[LHYLogView outputString:[NSString stringWithFormat:@"时间：%@\n文件：%@\n行数：第%d行\n方法：%@\n输出：%@",[NSDate date],[[NSString stringWithUTF8String:__FILE__] lastPathComponent],__LINE__,[NSString stringWithUTF8String:__FUNCTION__],[NSString stringWithFormat:format, ## __VA_ARGS__]]] UTF8String])
+#define NSLog(format, ...) printf("%s\n\n",[[LLLogView outputString:[NSString stringWithFormat:@"时间：%@\n文件：%@\n行数：第%d行\n方法：%@\n输出：%@",[NSDate date],[[NSString stringWithUTF8String:__FILE__] lastPathComponent],__LINE__,[NSString stringWithUTF8String:__FUNCTION__],[NSString stringWithFormat:format, ## __VA_ARGS__]]] UTF8String])
 
 #else
 
