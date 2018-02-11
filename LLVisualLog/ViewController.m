@@ -38,7 +38,21 @@
 
 - (void)btnClick:(UIButton *)btn {
     if (btn.tag == 0) {
-        NSLog(@"哈哈哈");
+        static dispatch_source_t timer;
+        if (timer == nil) {
+            timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+            dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+            dispatch_source_set_event_handler(timer, ^{
+                NSLog(@"哈哈哈");
+            });
+            dispatch_resume(timer);
+            [btn setTitle:@"关闭日志" forState:UIControlStateNormal];
+        }
+        else {
+            dispatch_cancel(timer);
+            timer = nil;
+            [btn setTitle:@"打印日志" forState:UIControlStateNormal];
+        }
     }
     else {
         NSString *text = nil;
