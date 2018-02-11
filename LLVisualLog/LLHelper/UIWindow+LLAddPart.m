@@ -73,7 +73,7 @@ static char cupKey;
     //1秒左右获取一次帧数
     if (passTime > .5) {
         //帧数 = 总帧数/时间
-        int fps = ceil(frameCount/passTime);
+        int fps = floor(frameCount/passTime);
         //重置
         lastTime = link.timestamp;
         frameCount = 0;

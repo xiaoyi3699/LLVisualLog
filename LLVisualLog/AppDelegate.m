@@ -46,6 +46,15 @@ void UncaughtExceptionHandler(NSException *exception) {
     NSString *name = [exception name];
     NSString *content = [NSString stringWithFormat:@"<b>发送异常错误报告</b>\n<b>name</b>:\n%@\n\n<b>reason</b>:\n%@\n\n<b>callStackSymbols</b>:\n%@",name,reason,[callStack componentsJoinedByString:@"\n"]];
     
+    //在这里可以自行处理崩溃日志：
+    /* 处理方式1：仿友盟错误统计
+      将崩溃信息存入本地，当程序再次打开时，将本地的错误信息发送至指定服务器，实现统计错误信息的目的
+     */
+    /* 处理方式2：将错误信息发送到开发者邮箱
+     须真机，且手机邮箱已登录
+     */
+    
+    //这里使用方式2，将错误信息发送至开发者邮箱
     NSMutableString *mailUrl = [[NSMutableString alloc] init];
     [mailUrl appendFormat:@"mailto:122589615@qq.com?"];
     [mailUrl appendFormat:@"&subject=程序异常崩溃"];
