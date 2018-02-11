@@ -7,6 +7,13 @@
 //
 
 #import "LLLogView.h"
+#define SCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT  [UIScreen mainScreen].bounds.size.height
+
+#define IS_iPhone      (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define iPhoneX        (IS_iPhone && SCREEN_HEIGHT==812)
+#define OFFSET_Y       (iPhoneX ? 88:64)
+#define TABBAR_HEIGHT  (iPhoneX ? 83:49)
 
 @implementation UITextView (LLLogView)
 
@@ -210,7 +217,7 @@
     static LLLogView *logView;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        logView = [[LLLogView alloc] initWithFrame:CGRectMake(0, 88, 40, 40)];
+        logView = [[LLLogView alloc] initWithFrame:CGRectMake(0, OFFSET_Y, 40, 40)];
         logView.layer.masksToBounds = YES;
         logView.layer.cornerRadius = 20;
         logView.isStart = NO;
@@ -224,18 +231,27 @@
         
         self.backgroundColor = [UIColor colorWithWhite:.5 alpha:.5];
         
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = self.bounds;
-        btn.titleLabel.font = [UIFont systemFontOfSize:15];
-        [btn setTitle:@"日志" forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:btn];
+        UILabel *label = [[UILabel alloc] initWithFrame:self.bounds];
+        label.text = @"日志";
+        label.textColor = [UIColor blueColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [UIFont systemFontOfSize:15];
+        [self addSubview:label];
     }
     return self;
 }
 
-- (void)btnClick:(UIButton *)btn {
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
+    
+    UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRecognizer:)];
+    [self addGestureRecognizer:tapRec];
+    
+    UIPanGestureRecognizer *panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panRecognizer:)];
+    [self addGestureRecognizer:panRec];
+}
+
+- (void)tapRecognizer:(UILongPressGestureRecognizer *)recognizer {
     LHYMessageView *messageView = [LHYMessageView messageView];
     if (messageView.superview == nil) {
         [[UIApplication sharedApplication].delegate.window addSubview:messageView];
@@ -244,4 +260,42 @@
     [messageView scrollsToBottomAnimated:YES];
 }
 
+- (void)panRecognizer:(UIPanGestureRecognizer *)recognizer {
+    UIView *tapView = recognizer.view;
+    CGPoint point_0 = [recognizer translationInView:tapView];
+    
+    static CGRect rect;
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        rect = tapView.frame;
+    }
+    else if (recognizer.state == UIGestureRecognizerStateChanged) {
+        
+        CGFloat x = rect.origin.x+point_0.x;
+        CGFloat y = rect.origin.y+point_0.y;
+        
+        if (x < 0 || x > SCREEN_WIDTH-tapView.frame.size.width) {
+            x = tapView.frame.origin.x;
+        }
+        if (y < OFFSET_Y || y > SCREEN_HEIGHT-TABBAR_HEIGHT-tapView.frame.size.height) {
+            y = tapView.frame.origin.y;
+        }
+        
+        tapView.frame = CGRectMake(x, y, tapView.frame.size.width, tapView.frame.size.height);
+    }
+    else if (recognizer.state == UIGestureRecognizerStateEnded ||
+             recognizer.state == UIGestureRecognizerStateCancelled) {
+        CGRect rect = self.frame;
+        if (self.center.x <= SCREEN_WIDTH/2) {
+            rect.origin.x = 0.0;
+        }
+        else {
+            rect.origin.x = SCREEN_WIDTH-rect.size.width;
+        }
+        [UIView animateWithDuration:.2 animations:^{
+            self.frame = rect;
+        }];
+    }
+}
+
 @end
+
