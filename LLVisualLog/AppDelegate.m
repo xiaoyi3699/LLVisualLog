@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "UIWindow+LLAddPart.h"
 
 @interface AppDelegate ()
 
@@ -25,11 +26,34 @@
     [self.window setRootViewController:[ViewController new]];
     
 #if DEBUG
+    //开启【日志打印】的功能
     [LLLogView startLog];
+    
+    //监听【页面帧率】和【CPU的使用量】
+    [self.window startObserveFpsAndCpu];
+    
+    //开启【捕获异常】的功能
+    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
 #endif
     return YES;
 }
 
+void UncaughtExceptionHandler(NSException *exception) {
+    
+    //获取异常崩溃信息
+    NSArray *callStack = [exception callStackSymbols];
+    NSString *reason = [exception reason];
+    NSString *name = [exception name];
+    NSString *content = [NSString stringWithFormat:@"<b>发送异常错误报告</b>\n<b>name</b>:\n%@\n\n<b>reason</b>:\n%@\n\n<b>callStackSymbols</b>:\n%@",name,reason,[callStack componentsJoinedByString:@"\n"]];
+    
+    NSMutableString *mailUrl = [[NSMutableString alloc] init];
+    [mailUrl appendFormat:@"mailto:122589615@qq.com?"];
+    [mailUrl appendFormat:@"&subject=程序异常崩溃"];
+    [mailUrl appendFormat:@"&body=%@",content];
+    
+    NSString *emailPath = [mailUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:emailPath]];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

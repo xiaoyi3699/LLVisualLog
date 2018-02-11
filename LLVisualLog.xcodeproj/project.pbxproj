@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7516091E202FDBCC005E474B /* UIWindow+LLAddPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7516091C202FDBCC005E474B /* UIWindow+LLAddPart.m */; };
 		75275CD1202843E100427B4C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 75275CD0202843E100427B4C /* AppDelegate.m */; };
 		75275CD4202843E100427B4C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75275CD3202843E100427B4C /* ViewController.m */; };
 		75275CD9202843E100427B4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75275CD8202843E100427B4C /* Assets.xcassets */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7516091C202FDBCC005E474B /* UIWindow+LLAddPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+LLAddPart.m"; sourceTree = "<group>"; };
+		7516091D202FDBCC005E474B /* UIWindow+LLAddPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+LLAddPart.h"; sourceTree = "<group>"; };
 		75275CCC202843E100427B4C /* LLVisualLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LLVisualLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75275CCF202843E100427B4C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		75275CD0202843E100427B4C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -78,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7516091B202FDBBD005E474B /* LLHelper */ = {
+			isa = PBXGroup;
+			children = (
+				7516091D202FDBCC005E474B /* UIWindow+LLAddPart.h */,
+				7516091C202FDBCC005E474B /* UIWindow+LLAddPart.m */,
+			);
+			path = LLHelper;
+			sourceTree = "<group>";
+		};
 		75275CC3202843E100427B4C = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +113,7 @@
 		75275CCE202843E100427B4C /* LLVisualLog */ = {
 			isa = PBXGroup;
 			children = (
+				7516091B202FDBBD005E474B /* LLHelper */,
 				75275D022028459800427B4C /* LLLogView */,
 				75275CCF202843E100427B4C /* AppDelegate.h */,
 				75275CD0202843E100427B4C /* AppDelegate.m */,
@@ -273,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75275CD4202843E100427B4C /* ViewController.m in Sources */,
+				7516091E202FDBCC005E474B /* UIWindow+LLAddPart.m in Sources */,
 				75275D052028459800427B4C /* LLLogView.m in Sources */,
 				75275CDF202843E100427B4C /* main.m in Sources */,
 				75275CD1202843E100427B4C /* AppDelegate.m in Sources */,
@@ -421,12 +435,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_ACTIVITY_MODE = "";
 				DEVELOPMENT_TEAM = N6X5V58LVJ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LLVisualLog/PrefixHeader.pch";
 				INFOPLIST_FILE = LLVisualLog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"MTL_ENABLE_DEBUG_INFO[sdk=iphonesimulator*]" = default;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangzhaomeng.LLVisualLog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -439,6 +455,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_ACTIVITY_MODE = "";
 				DEVELOPMENT_TEAM = N6X5V58LVJ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LLVisualLog/PrefixHeader.pch";

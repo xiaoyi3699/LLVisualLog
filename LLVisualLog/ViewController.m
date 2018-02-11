@@ -17,28 +17,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(100, 100, 100, 30);
-    btn.titleLabel.font = [UIFont systemFontOfSize:13];
-    [btn setTitle:@"打印日志" forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
+    UIButton *logBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    logBtn.frame = CGRectMake(100, 100, 100, 30);
+    logBtn.tag = 0;
+    logBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    [logBtn setTitle:@"打印日志" forState:UIControlStateNormal];
+    [logBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [logBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:logBtn];
+    
+    UIButton *errorBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    errorBtn.frame = CGRectMake(100, 200, 100, 30);
+    errorBtn.tag = 1;
+    errorBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    [errorBtn setTitle:@"异常捕获" forState:UIControlStateNormal];
+    [errorBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [errorBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:errorBtn];
 }
 
 - (void)btnClick:(UIButton *)btn {
-    static dispatch_source_t timer;
-    if (timer == nil) {
-        timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
-        dispatch_source_set_event_handler(timer, ^{
-            NSLog(@"哈哈哈");
-        });
-        dispatch_resume(timer);
+    if (btn.tag == 0) {
+        NSLog(@"哈哈哈");
     }
     else {
-        dispatch_cancel(timer);
-        timer = nil;
+        NSString *text = nil;
+        NSMutableArray *array = [NSMutableArray array];
+        [array addObject:text];
     }
 }
 
