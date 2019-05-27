@@ -66,7 +66,7 @@
         }
             break;
         case MFMailComposeResultFailed: {
-            NSLog(@"用户尝试保存或发送邮件失败", [error localizedDescription]);
+            NSLog(@"用户尝试保存或发送邮件失败:%@", [error localizedDescription]);
         }break;
     }
     [controller dismissViewControllerAnimated:YES completion:nil];
