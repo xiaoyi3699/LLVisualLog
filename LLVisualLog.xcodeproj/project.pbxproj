@@ -15,6 +15,11 @@
 		75275CE9202843E100427B4C /* LLVisualLogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 75275CE8202843E100427B4C /* LLVisualLogTests.m */; };
 		75275CF4202843E100427B4C /* LLVisualLogUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 75275CF3202843E100427B4C /* LLVisualLogUITests.m */; };
 		75275D052028459800427B4C /* LLLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75275D032028459800427B4C /* LLLogView.m */; };
+		75A4F17A229B7B1E00CBC3E8 /* LLLogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A4F176229B7B1E00CBC3E8 /* LLLogModel.m */; };
+		75A4F17B229B7B1E00CBC3E8 /* LLLogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A4F178229B7B1E00CBC3E8 /* LLLogTableViewCell.m */; };
+		75A4F181229B7CD200CBC3E8 /* LLUncaughtException.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A4F17D229B7CD200CBC3E8 /* LLUncaughtException.m */; };
+		75A4F182229B7CD200CBC3E8 /* LLSignalException.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A4F17F229B7CD200CBC3E8 /* LLSignalException.m */; };
+		75A4F186229B7DF000CBC3E8 /* LLSendEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A4F185229B7DF000CBC3E8 /* LLSendEmail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +59,16 @@
 		75275D012028440700427B4C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		75275D032028459800427B4C /* LLLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLLogView.m; sourceTree = "<group>"; };
 		75275D042028459800427B4C /* LLLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLLogView.h; sourceTree = "<group>"; };
+		75A4F176229B7B1E00CBC3E8 /* LLLogModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLLogModel.m; sourceTree = "<group>"; };
+		75A4F177229B7B1E00CBC3E8 /* LLLogTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLLogTableViewCell.h; sourceTree = "<group>"; };
+		75A4F178229B7B1E00CBC3E8 /* LLLogTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLLogTableViewCell.m; sourceTree = "<group>"; };
+		75A4F179229B7B1E00CBC3E8 /* LLLogModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLLogModel.h; sourceTree = "<group>"; };
+		75A4F17D229B7CD200CBC3E8 /* LLUncaughtException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLUncaughtException.m; sourceTree = "<group>"; };
+		75A4F17E229B7CD200CBC3E8 /* LLSignalException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSignalException.h; sourceTree = "<group>"; };
+		75A4F17F229B7CD200CBC3E8 /* LLSignalException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSignalException.m; sourceTree = "<group>"; };
+		75A4F180229B7CD200CBC3E8 /* LLUncaughtException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLUncaughtException.h; sourceTree = "<group>"; };
+		75A4F184229B7DF000CBC3E8 /* LLSendEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSendEmail.h; sourceTree = "<group>"; };
+		75A4F185229B7DF000CBC3E8 /* LLSendEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSendEmail.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +130,7 @@
 			children = (
 				7516091B202FDBBD005E474B /* LLHelper */,
 				75275D022028459800427B4C /* LLLogView */,
+				75A4F17C229B7CD200CBC3E8 /* LLUncaughtException */,
 				75275CCF202843E100427B4C /* AppDelegate.h */,
 				75275CD0202843E100427B4C /* AppDelegate.m */,
 				75275CD2202843E100427B4C /* ViewController.h */,
@@ -150,8 +166,33 @@
 			children = (
 				75275D042028459800427B4C /* LLLogView.h */,
 				75275D032028459800427B4C /* LLLogView.m */,
+				75A4F179229B7B1E00CBC3E8 /* LLLogModel.h */,
+				75A4F176229B7B1E00CBC3E8 /* LLLogModel.m */,
+				75A4F177229B7B1E00CBC3E8 /* LLLogTableViewCell.h */,
+				75A4F178229B7B1E00CBC3E8 /* LLLogTableViewCell.m */,
 			);
 			path = LLLogView;
+			sourceTree = "<group>";
+		};
+		75A4F17C229B7CD200CBC3E8 /* LLUncaughtException */ = {
+			isa = PBXGroup;
+			children = (
+				75A4F183229B7DF000CBC3E8 /* LLSendEmail */,
+				75A4F17E229B7CD200CBC3E8 /* LLSignalException.h */,
+				75A4F17F229B7CD200CBC3E8 /* LLSignalException.m */,
+				75A4F180229B7CD200CBC3E8 /* LLUncaughtException.h */,
+				75A4F17D229B7CD200CBC3E8 /* LLUncaughtException.m */,
+			);
+			path = LLUncaughtException;
+			sourceTree = "<group>";
+		};
+		75A4F183229B7DF000CBC3E8 /* LLSendEmail */ = {
+			isa = PBXGroup;
+			children = (
+				75A4F184229B7DF000CBC3E8 /* LLSendEmail.h */,
+				75A4F185229B7DF000CBC3E8 /* LLSendEmail.m */,
+			);
+			path = LLSendEmail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,8 +328,13 @@
 			files = (
 				75275CD4202843E100427B4C /* ViewController.m in Sources */,
 				7516091E202FDBCC005E474B /* UIWindow+LLAddPart.m in Sources */,
+				75A4F17B229B7B1E00CBC3E8 /* LLLogTableViewCell.m in Sources */,
 				75275D052028459800427B4C /* LLLogView.m in Sources */,
 				75275CDF202843E100427B4C /* main.m in Sources */,
+				75A4F17A229B7B1E00CBC3E8 /* LLLogModel.m in Sources */,
+				75A4F186229B7DF000CBC3E8 /* LLSendEmail.m in Sources */,
+				75A4F181229B7CD200CBC3E8 /* LLUncaughtException.m in Sources */,
+				75A4F182229B7CD200CBC3E8 /* LLSignalException.m in Sources */,
 				75275CD1202843E100427B4C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,7 +482,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_ACTIVITY_MODE = "";
-				DEVELOPMENT_TEAM = N6X5V58LVJ;
+				DEVELOPMENT_TEAM = 78Y7DBKKYD;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LLVisualLog/PrefixHeader.pch";
 				INFOPLIST_FILE = LLVisualLog/Info.plist;
@@ -456,7 +502,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_ACTIVITY_MODE = "";
-				DEVELOPMENT_TEAM = N6X5V58LVJ;
+				DEVELOPMENT_TEAM = 78Y7DBKKYD;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LLVisualLog/PrefixHeader.pch";
 				INFOPLIST_FILE = LLVisualLog/Info.plist;

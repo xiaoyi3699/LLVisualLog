@@ -8,8 +8,22 @@
 
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
+#ifdef __OBJC__
+
+//APP名字
+#define LLAppName     [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]
+
+//APP Build
+#define LLAppBuild    [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
+
+//APP版本
+#define LLAppVersion  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 
 #import "LLLogView.h"
+#import "LLSendEmail.h"
+#import "UIWindow+LLAddPart.h"
+#import "LLSignalException.h"
+#import "LLUncaughtException.h"
 
 //日志打印
 #ifdef DEBUG
@@ -22,4 +36,5 @@
 
 #endif
 
+#endif
 #endif /* PrefixHeader_pch */

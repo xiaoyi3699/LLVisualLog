@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
-#import "UIWindow+LLAddPart.h"
 
 @interface AppDelegate ()
 
@@ -26,14 +25,13 @@
     [self.window setRootViewController:[ViewController new]];
     
 #if DEBUG
-    //开启【日志打印】的功能
+    //日志打印
     [LLLogView startLog];
-    
-    //监听【页面帧率】和【CPU的使用量】
+    //监听cup使用量和页面帧率
     [self.window startObserveFpsAndCpu];
-    
-    //开启【捕获异常】的功能
-    NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
+    //异常捕获
+    LLInstallSignalHandler();
+    LLInstallUncaughtExceptionHandler();
 #endif
     return YES;
 }
